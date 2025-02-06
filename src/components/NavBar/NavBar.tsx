@@ -8,7 +8,7 @@ const NavBar = () => {
         <NavLink className="navbar-brand fs-2" to='/'>Мой блог</NavLink>
         <Nav className="ms-auto">
           <NavLink className='nav-link' to='/'>Главная</NavLink>
-          <NavLink className='nav-link' to='/blog/add'>Добавить пост</NavLink>
+          <NavLink className='nav-link' to='/blog/new-post'>Добавить пост</NavLink>
         </Nav>
       </Container>
     </Navbar>
