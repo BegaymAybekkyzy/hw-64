@@ -5,7 +5,7 @@ export interface IPostForm {
 }
 
 export interface IPostAPI {
-  [id: string]: IPostForm
+  [id: string]: IPostForm;
 }
 
 export interface IPost {

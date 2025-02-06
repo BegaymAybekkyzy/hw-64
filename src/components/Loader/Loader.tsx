@@ -1,11 +1,12 @@
-import { Spinner } from 'react-bootstrap';
+import { Spinner } from "react-bootstrap";
 
 const Loader = () => {
   return (
-    <div className="container my-auto">
-      <Spinner animation="border" role="status">
-        <span className="visually-hidden">Loading...</span>
-      </Spinner>
+    <div
+      style={{ height: "80vh" }}
+      className="container m-auto d-flex justify-content-center align-items-center"
+    >
+      <Spinner animation="border" variant="dark" />
     </div>
   );
 };

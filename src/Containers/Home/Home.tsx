@@ -1,13 +1,14 @@
-import { useCallback, useEffect, useState } from 'react';
-import axiosApi from '../../axiosApi.ts';
-import { IPost, IPostAPI } from '../../types.d.tsx';
-import Loader from '../../components/Loader/Loader.tsx';
-import BlogPost from '../../components/BlogPost/BlogPost.tsx';
-
+import { useCallback, useEffect, useState } from "react";
+import axiosApi from "../../axiosApi.ts";
+import { IPost, IPostAPI } from "../../types.d.tsx";
+import Loader from "../../components/Loader/Loader.tsx";
+import BlogPost from "../../components/BlogPost/BlogPost.tsx";
+import { Outlet, useNavigate } from "react-router-dom";
 
 const Home = () => {
   const [posts, setPosts] = useState<IPost[]>([]);
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   const fetchPosts = useCallback(async () => {
     try {
@@ -17,15 +18,10 @@ const Home = () => {
       const postsArray = postKeys.map((key) => {
         return {
           id: key,
-          ...
-            response.data[key],
+          ...response.data[key],
         };
       });
-
-      console.log(postsArray);
       setPosts(postsArray);
-      console.log(postKeys);
-      console.log(response);
     } catch (e) {
       alert(e);
     } finally {
@@ -35,18 +31,25 @@ const Home = () => {
 
   useEffect(() => {
     void fetchPosts();
-    }, [fetchPosts]);
-
+  }, [navigate, fetchPosts]);
 
   return (
     <div className="container">
-      {loading ? <Loader/>
-        : posts.length > 0 ?
-          posts.map((post) => (
-            <BlogPost key={post.id} post={post} />
-          ))
-          : <p>Нет постов</p>
-      }
+      <div className="row">
+        <div className="col-7">
+          {loading ? (
+            <Loader />
+          ) : posts.length > 0 ? (
+            posts.map((post) => <BlogPost key={post.id} post={post} />)
+          ) : (
+            <p>Нет постов</p>
+          )}
+        </div>
+
+        <div className="col-5">
+          <Outlet />
+        </div>
+      </div>
     </div>
   );
 };
