@@ -1,8 +1,8 @@
-import { useCallback, useEffect, useState } from 'react';
-import axiosApi from '../../axiosApi.ts';
-import { IBlogDataAPI, IContact } from '../../types.d.tsx';
-import Loader from '../../components/Loader/Loader.tsx';
-import EmployeeCards from '../../components/EmployeeCards/EmployeeCards.tsx';
+import { useCallback, useEffect, useState } from "react";
+import axiosApi from "../../axiosApi.ts";
+import { IBlogDataAPI, IContact } from "../../types.d.tsx";
+import Loader from "../../components/Loader/Loader.tsx";
+import EmployeeCards from "../../components/EmployeeCards/EmployeeCards.tsx";
 
 const Contacts = () => {
   const [loading, setLoading] = useState(false);
@@ -22,7 +22,7 @@ const Contacts = () => {
 
   useEffect(() => {
     void fetchPosts();
-  }, [ fetchPosts]);
+  }, [fetchPosts]);
 
   return (
     <div className="container">
@@ -30,8 +30,10 @@ const Contacts = () => {
         <h1 className="mb-4">Свяжитесь с нами</h1>
       </div>
       <div className="row row-cols-2 gap-3">
-        {loading ? <Loader />
-          : contacts.map((contact, index) => (
+        {loading ? (
+          <Loader />
+        ) : (
+          contacts.map((contact, index) => (
             <EmployeeCards
               title={contact.position}
               key={index}
@@ -40,7 +42,7 @@ const Contacts = () => {
               phone={contact.phone}
             />
           ))
-        }
+        )}
       </div>
     </div>
   );
