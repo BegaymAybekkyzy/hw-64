@@ -20,7 +20,6 @@ const BlogPost: React.FC<Props> = ({ post }) => {
               Детальный просмотр
             </Link>
             <footer className="blockquote-footer">
-              Дата создания{" "}
               <cite title="Source Title">
                 {new Date(post.time).toLocaleString()}
               </cite>

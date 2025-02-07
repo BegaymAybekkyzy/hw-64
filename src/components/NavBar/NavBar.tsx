@@ -15,6 +15,12 @@ const NavBar = () => {
           <NavLink className="nav-link" to="/blog/new-post">
             Добавить пост
           </NavLink>
+          <NavLink className="nav-link" to="/about">
+           О нас
+          </NavLink>
+          <NavLink className="nav-link" to="/contacts">
+           Контакты
+          </NavLink>
         </Nav>
       </Container>
     </Navbar>

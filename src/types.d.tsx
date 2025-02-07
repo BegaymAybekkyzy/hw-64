@@ -14,3 +14,21 @@ export interface IPost {
   description: string;
   time: string;
 }
+
+export interface IContact {
+  phone: number;
+  position: string;
+  photo: string;
+  description: string;
+}
+
+export interface IInformation {
+  address: string;
+  region: string;
+  planet: string;
+}
+
+export interface IBlogDataAPI {
+  contacts: IContact[];
+  information: IInformation;
+}

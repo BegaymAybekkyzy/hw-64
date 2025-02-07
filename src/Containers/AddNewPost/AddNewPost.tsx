@@ -29,8 +29,8 @@ const AddNewPost = () => {
         <Loader />
       ) : (
         <div className="container">
-          <h1>Добавить пост</h1>
-          <div className="p-3 mw-50">
+          <h1 className="text-center">Добавить пост</h1>
+          <div className="p-3 w-50 mx-auto">
             <BlogForm onSubmitFunction={onSubmitAddNewPost} />
           </div>
         </div>
